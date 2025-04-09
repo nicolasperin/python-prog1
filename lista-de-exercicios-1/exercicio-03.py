@@ -9,5 +9,5 @@ horasParaSegundos = horas * 3600 #1 hora = 3600 segundos -> 60 minutos * 60 segu
 diasParaSegundos = dias * 24 * 3600
 
 total = diasParaSegundos + horasParaSegundos + minutosParaSegundos + segundos
-print(total)
+print(total, " segundos")
 # print("Quantidade de segundos: ", )
