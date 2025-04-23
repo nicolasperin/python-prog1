@@ -1,7 +1,11 @@
 codigo = int(input("Informe o código do produto: "))
 quantidade = int(input("Digite a quantidade de produtos: "))
 
-if codigo <= 10:
+
+if codigo < 0:
+    preco = 0
+    print("Código inválido")
+elif codigo <= 10:
     preco = 10
 elif codigo <= 20:
     preco = 15
@@ -9,10 +13,6 @@ elif codigo <= 30:
     preco = 20
 elif codigo <= 40:
     preco = 30
-
-if codigo < 0:
-    preco = 0
-    print("Código inválido")
 
 valor_total = preco * quantidade
 
