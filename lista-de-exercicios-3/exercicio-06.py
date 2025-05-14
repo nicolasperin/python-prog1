@@ -3,6 +3,7 @@ cont_pares = 0
 cont_impares = 0
 soma_pares = 0
 soma_impares = 0
+media_pares, media_impares = 0, 0
 
 numero = int(input("Digite um número positivo entre 1 e 1000: "))
 while numero < 0:
@@ -23,13 +24,13 @@ while numero != -1:
     if numero % 2 == 0:
         cont_pares += 1
         soma_pares = soma_pares + numero
+        media_pares = soma_pares/cont_pares
     else:
         cont_impares += 1
         soma_impares = soma_impares + numero
-    
-    if cont_pares != 0 and cont_impares != 0:
-        media_pares = soma_pares/cont_pares
         media_impares = soma_impares/cont_impares
+    
+    if cont_pares != 0 or cont_impares != 0:
         soma_total = soma_impares + soma_pares
 
     cont += 1
