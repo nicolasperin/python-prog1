@@ -15,7 +15,6 @@ def lerNumerosSeguintes():
     numero = int(input("Digite um número positivo entre 1 e 1000: "))
     return numero
 
-
 cont = 1
 cont_pares = 0
 cont_impares = 0
