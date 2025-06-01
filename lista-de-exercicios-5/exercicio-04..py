@@ -18,14 +18,13 @@ def lerN():
 
 def imprimir(n):
     cont = 1
-    num_atual = 1
     while cont <= n:
+        num_atual = 1
         while num_atual <= cont:
             print(f"{num_atual}", end=" ")    
             num_atual += 1
         print()
         cont += 1
-        num_atual = 1
 
 n = lerN()
 
