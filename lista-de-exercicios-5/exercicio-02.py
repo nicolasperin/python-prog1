@@ -13,10 +13,6 @@ def lerGabarito(num_questao):
     return gabarito
 
 num_questao = 1
-aluno = 1
-pontuacao = 0
-soma_notas = 0
-questao = 1
 
 print("PROFESSOR - Digite o gabarito da prova")
 
@@ -40,40 +36,63 @@ gab_questao_9 = lerGabarito(num_questao)
 num_questao += 1
 gab_questao_10 = lerGabarito(num_questao)
 
-num_questao = 1
+
+aluno = 1
+pontuacao = 0
+soma_notas = 0
+questao = 1
 
 print("PROVA\nDigite a resposta da questão - Use 'A', 'B', 'C', 'D' ou 'E'")
 
-questao_1 = lerGabarito(num_questao)
-num_questao += 1
-questao_2 = lerGabarito(num_questao)
-num_questao += 1
-questao_3 = lerGabarito(num_questao)
-num_questao += 1
-questao_4 = lerGabarito(num_questao)
-num_questao += 1
-questao_5 = lerGabarito(num_questao)
-num_questao += 1
-questao_6 = lerGabarito(num_questao)
-num_questao += 1
-questao_7 = lerGabarito(num_questao)
-num_questao += 1
-questao_8 = lerGabarito(num_questao)
-num_questao += 1
-questao_9 = lerGabarito(num_questao)
-num_questao += 1
-questao_10 = lerGabarito(num_questao)
-num_questao += 1
 
-num_questao = 1
-while True:
-    while num_questao <= 10:
-        if (num_questao == 1 and gab_questao_1 == questao_1) or (num_questao == 2 and gab_questao_2 == questao_2) or (num_questao == 3 and gab_questao_3 == questao_3) or (num_questao == 4 and gab_questao_4 == questao_4) or (num_questao == 5 and gab_questao_5 == questao_5) or (num_questao == 6 and gab_questao_6 == questao_6) or (num_questao == 7 and gab_questao_7 == questao_7) or (num_questao == 8 and gab_questao_8 == questao_8) or (num_questao == 9 and gab_questao_9 == questao_9) or (num_questao == 10 and gab_questao_10 == questao_10):
-            pontuacao += 1
+continuar = "S"
 
-        num_questao += 1
 
+while continuar == "S":
     num_questao = 1
+
+    questao_1 = lerGabarito(num_questao)
+    num_questao += 1
+    questao_2 = lerGabarito(num_questao)
+    num_questao += 1
+    questao_3 = lerGabarito(num_questao)
+    num_questao += 1
+    questao_4 = lerGabarito(num_questao)
+    num_questao += 1
+    questao_5 = lerGabarito(num_questao)
+    num_questao += 1
+    questao_6 = lerGabarito(num_questao)
+    num_questao += 1
+    questao_7 = lerGabarito(num_questao)
+    num_questao += 1
+    questao_8 = lerGabarito(num_questao)
+    num_questao += 1
+    questao_9 = lerGabarito(num_questao)
+    num_questao += 1
+    questao_10 = lerGabarito(num_questao)
+    num_questao += 1
+
+    pontuacao = 0
+    if questao_1 == gab_questao_1:
+        pontuacao += 1
+    if questao_2 == gab_questao_2:
+        pontuacao += 1
+    if questao_3 == gab_questao_3:
+        pontuacao += 1
+    if questao_4 == gab_questao_4:
+        pontuacao += 1
+    if questao_5 == gab_questao_5:
+        pontuacao += 1
+    if questao_6 == gab_questao_6:
+        pontuacao += 1
+    if questao_7 == gab_questao_7:
+        pontuacao += 1
+    if questao_8 == gab_questao_8:
+        pontuacao += 1
+    if questao_9 == gab_questao_9:
+        pontuacao += 1
+    if questao_10 == gab_questao_10:
+        pontuacao += 1
 
     if aluno == 1:
         maior_nota = pontuacao
@@ -86,18 +105,13 @@ while True:
         
 
     soma_notas = soma_notas + pontuacao
+    aluno += 1
     print (num_questao)
 
     continuar = str(input("Outro aluno fará uma prova? (S/N): ")).upper()
     while continuar != "S" and continuar != "N":
         continuar = str(input("Resposta inválida!\nOutro aluno fará uma prova? (S/N): ")).upper()
-
-    if continuar == "S":
-        aluno += 1
-        pontuacao = 0
-        num_questao = 1
-    else:
-        break
+    
 
 media_sala = soma_notas / aluno
 print("\nUm total de %d alunos fizeram a prova" %aluno)
