@@ -71,5 +71,4 @@ def main():
 
     mostrar_resultados(total_alunos, maior_nota, menor_nota, soma_notas)
 
-# Executar o programa
 main()
