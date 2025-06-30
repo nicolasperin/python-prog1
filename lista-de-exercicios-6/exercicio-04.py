@@ -15,4 +15,4 @@ def apagarVetor(vetor):
     for item in vetor:
         vetor.pop(item)
 
-def main()
+        
