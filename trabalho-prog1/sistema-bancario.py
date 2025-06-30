@@ -17,7 +17,12 @@ conta e o saldo.
 
 def pegarNumeroDaConta(vetorContas):
     numeroConta = int(input("Digite o número da conta: "))
-    while numeroConta < 0 or numeroConta in vetorContas:
+    for i in range(len(vetorContas)):
+        if vetorContas[i] == numeroConta:
+            conta_existente = True 
+        else:
+            conta_existente = False
+    while numeroConta < 0 and conta_existente == True:
         numeroConta = int(input("Número de conta inválido\nDigite o número da conta: "))
     return numeroConta
 
@@ -32,25 +37,48 @@ def inserir_conta(vetorContas, vetorSaldo):
     vetorContas.append(conta)
     vetorSaldo.append(0)
 
-def pesquisar_conta(vetorContas, vetorSaldos):
+def pesquisa(vetorContas): #Retorna o índice da conta no array de contas
     
-    conta = int(input("Digite o número da conta: "))
-    while conta < 0:
-        conta = int(input("Número de conta inválido\nDigite o número da conta: "))
-    
+    conta = pegarNumeroDaConta(vetorContas)
     for i in range(len(vetorContas)):
         if vetorContas[i] == conta:
-            print(f"Conta: {vetorContas[i]}\nSaldo: {vetorSaldos[i]}")
-            break
+            return i
     
     print("A pesquisa não gerou resultado!\n")
 
 def depositar(vetorContas, vetorSaldos):
-    conta = pegarNumeroDaConta(vetorContas)
+    conta = pesquisa(vetorContas)
     saldo = pegarSaldo()
-    for i in range(len(vetorContas)):
-        if vetorContas[i] == conta:
-            vetorSaldos[i] = vetorSaldos[i] + saldo
+    vetorSaldos[conta] = vetorSaldos[conta] + saldo
+
+def imprimir(indice, vetorContas, vetorSaldo):
+    print(f"Conta: {vetorContas[indice]}\nSaldo: {vetorSaldo[indice]}")
+
+
+def pesquisar_conta(vetorContas, vetorSaldo):
+    indice = pesquisa(vetorContas)
+    if indice == None:
+        pass
+    else:
+        imprimir(indice, vetorContas, vetorSaldo)
+        
+def maior_saldo(vetorContas, vetorSaldo): #retorna o índice do maior saldo
+    maior_saldo = vetorSaldo[0]
+    for i in range(len(vetorSaldo)):
+        if vetorSaldo[i] > maior_saldo:
+            maior_saldo = i
+    imprimir(i, vetorContas, vetorSaldo)
+
+def excluir(vetorContas, vetorSaldo):
+    conta = pesquisa(vetorContas)
+    if conta == None:
+        pass
+    else:
+        print("Conta excluída:")
+        imprimir(conta, vetorContas, vetorSaldo)
+        vetorContas.pop(conta)
+        vetorSaldo.pop(conta)
+
 
 def menu() :
     op = ""
@@ -95,14 +123,14 @@ def main():
         elif op == 4:
             print("\n\nMAIOR\n\n")
             # Chamar a função para pesquisar no vetor o maior elemento
-
-
+            maior_saldo(vetorContas, vetorSaldos)
 
         elif op == 5:
             print("\n\nEXCLUIR\n\n")
             # Ler a informação para pesquisar
             # Chamar a função para pesquisar no vetor
             # Excluir a posição pesquisada, se encontrar
+            excluir(vetorContas, vetorSaldos)
 
 
         elif op == 6:
@@ -113,7 +141,7 @@ def main():
         else:
             print("Opção inválida!")
 
-        input("Pressione <enter> para continuar ...")
+        input("\n\nPressione <enter> para continuar ...")
     
 
 
